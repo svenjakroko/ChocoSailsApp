@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <script>
+        async function onDelete(event) {
+            const id = event.target.id
+            const url = 'products/remove/' + id
+            await axios.delete(url)
+            location.reload()
+        }
+    </script>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Producer</th>
+                <th scope="col"><a class="btn btn-primary" href="/newproduct" role="button">New product</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% allProducts.forEach(p =>{ %>
+            <tr>
+                <th scope="row"><%=p.id %></th>
+                <td><a href="/products/<%= p.id%>"><%=p.name %></a></td>
+                <td><%=p.price %></td>
+                <td><%=p.producer %></td>
+                <td><button type="button" id="<%= p.id%>" onclick="onDelete(event)"
+                        class="btn btn-danger">Delete</button></td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+
+</html>

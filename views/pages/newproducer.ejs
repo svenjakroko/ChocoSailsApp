@@ -1,0 +1,36 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <form method="POST" action="/addproducer">
+        <div class="form-row align-items-center">
+            <div class="form-group col-7">
+                <label for="companyName">Company name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Company name">
+            </div>
+            <div class="form-group col">
+                <label for="country">Country</label>
+                <input type="text" class="form-control" id="country" name="country" placeholder="Country">
+            </div>
+            <div class="form-group col">
+                <label for="year">Year</label>
+                <input type="text" class="form-control" id="year" name="year" placeholder="Year">
+            </div>
+        </div>
+        <div class="form-group align-items-center">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+        </div>
+        <div class="form-group align-items-center">
+            <label for="logo">Logo</label>
+            <input type="text" class="form-control" id="logo" name="logo" placeholder="Link for logo">
+        </div>
+
+        <button type="submit" class="btn btn-primary align-items-center">Add</button>
+    </form>
+</body>
+
+</html>

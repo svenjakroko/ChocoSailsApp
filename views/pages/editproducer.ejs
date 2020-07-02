@@ -1,0 +1,39 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <% _.each(_producer, function (producer) { %>
+    <form method="POST" action="/updateproducer/<%= producer.id %>">
+        <div class="form-row align-items-center">
+            <div class="form-group col-7">
+                <label for="companyName">Company name</label>
+                <input type="text" class="form-control" id="name" name="name" value="<%= producer.name %>">
+            </div>
+            <div class="form-group col">
+                <label for="country">Country</label>
+                <input type="text" class="form-control" id="country" name="country" value="<%= producer.country %>">
+            </div>
+            <div class="form-group col">
+                <label for="year">Year</label>
+                <input type="text" class="form-control" id="year" name="year" value="<%= producer.year %>">
+            </div>
+        </div>
+        <div class="form-group align-items-center">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" name="description"
+                rows="3"><%= producer.description %></textarea>
+        </div>
+        <div class="form-group align-items-center">
+            <label for="logo">Logo</label>
+            <input type="text" class="form-control" id="logo" name="logo" value="<%= producer.logo %>">
+        </div>
+
+        <button type="submit" class="btn btn-primary align-items-center">Edit</button>
+    </form>
+    <% }) %>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <script>
+        async function onDelete(event) {
+            const id = event.target.id
+            const url = 'remove/' + id
+            await axios.delete(url)
+            location.assign('/producerslist')
+        }
+    </script>
+    <% _.each(_producer, function (producer) { %>
+    <div class="card text-center">
+        <h3 class="card-header">
+            <%= producer.name %>
+        </h3>
+        <img src="<%= producer.logo %>" alt="Company logo" class="img-thumbnail" style="width:200px;height: 200px;">
+        <h5 class="card-title text-left">Year when founded: <%= producer.year %></h5>
+        <h5 class="card-title text-left">Country of origin: <%= producer.country %></h5>
+        <span class="card-text">Description</span>
+        <p class="card-text"><%= producer.description %></p>
+        <a href="/editproducer/<%= producer.id%>" class="btn btn-primary">EDIT</a>
+        <button type="button" id="<%= producer.id%>" onclick="onDelete(event)" class="btn btn-danger">Delete</button>
+    </div>
+    </div>
+    <% }) %>
+</body>
+
+</html>
